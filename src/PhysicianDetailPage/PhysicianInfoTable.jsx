@@ -1,14 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
-const uuidv4 = require('uuid/v4');
 
 const styles = theme => ({
   root: {

@@ -4,11 +4,15 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import ChatIcon from '@material-ui/icons/Chat'
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+
+import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 const styles = {
   root: {
@@ -21,40 +25,43 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
+  },
+  list: {
+    width: 250,
   }
 };
+
+
+
 
 class TitleBar extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      auth: true,
-      anchorEl: null,
+      open: false
     };
   }
 
-  handleChange = (event, checked) => {
-    this.setState({ auth: checked });
-  };
-
-  handleMenu = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-
-  handleClose = () => {
-    this.setState({ anchorEl: null });
-  };
-
-
+  handleToggle = () => this.setState({open: !this.state.open});
 
   render() {
     const { classes } = this.props;
+
+    const sideList = (
+      <div className={classes.list}>
+        <List>{mailFolderListItems}</List>
+        <Divider />
+        <List>{otherMailFolderListItems}</List>
+      </div>
+    );
+
     return (
       <div className={classes.root}>
         <AppBar position="static" >
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu"
+            onClick={this.handleToggle}>
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
@@ -67,6 +74,16 @@ class TitleBar extends Component {
               <ChatIcon />
             </IconButton>
           </Toolbar>
+          <Drawer open={this.state.open} onClose={this.handleToggle}>
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={this.handleToggle}
+            onKeyDown={this.handleToggle}
+          >
+          {sideList}
+          </div>
+          </Drawer>
         </AppBar>
       </div>
     );

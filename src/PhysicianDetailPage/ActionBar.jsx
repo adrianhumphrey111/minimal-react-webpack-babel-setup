@@ -1,13 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
-import classNames from 'classnames'
-import IconButton from '@material-ui/core/IconButton';
 
 import DeactiveIcon from '@material-ui/icons/Cancel'
 
