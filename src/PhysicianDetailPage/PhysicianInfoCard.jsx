@@ -3,13 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
-import Divider from '@material-ui/core/Divider';
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
 
@@ -88,6 +84,9 @@ class PhysicianInfoCard extends Component {
     this.setState({ modalOpen: false });
   };
 
+  /* Correct way to implement this is to change the one source of truth then 
+  re-render top component, which will re-render its children. i.e. a redux state, or for this project
+  edit the details in the App's state and re-render the App component. */
   handleModalTextChange = (e, name, index) => {
     const newDetails = [...this.state.details]
     newDetails[index].value = e.target.value
@@ -97,7 +96,6 @@ class PhysicianInfoCard extends Component {
   render() {
     const { classes, user } = this.props;
     const details = [...this.state.details]
-    console.log(details)
 
     return (
       <div>
@@ -126,7 +124,7 @@ class PhysicianInfoCard extends Component {
               return (
                 <TextField
                   id={detail.label}
-                  label={detail.label}
+                  label={camelCaseToSpace(detail.label)}
                   className={classes.textField}
                   value={this.state.details[index].value}
                   onChange={(event) => this.handleModalTextChange(event, detail.label, index)}
