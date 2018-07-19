@@ -30,7 +30,8 @@ const styles = theme => ({
   },
   card: {
     minWidth: 275,
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 30
   },
   bullet: {
     display: 'inline-block',
@@ -65,6 +66,10 @@ const createData = (details) => {
   return results
 }
 
+const camelCaseToSpace = ( str ) => {
+  return str.replace(/([A-Z])/g, (g) => ` ${g[0]}`).replace(/^\w/, c => c.toUpperCase());
+}
+
 class PhysicianInfoCard extends Component {
   constructor(props) {
     super(props)
@@ -84,14 +89,10 @@ class PhysicianInfoCard extends Component {
   };
 
   handleModalTextChange = (e, name, index) => {
-    console.log(name)
     const newDetails = [...this.state.details]
-    console.log(newDetails)
     newDetails[index].value = e.target.value
-    console.log(newDetails)
     this.setState({details: newDetails})
   }
-
 
   render() {
     const { classes, user } = this.props;
