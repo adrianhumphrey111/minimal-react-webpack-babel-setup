@@ -65,7 +65,7 @@ class TitleBar extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Directory
+              Directory / {``}
             </Typography>
             <IconButton className={classes.menuButton} color="inherit" >
               <SearchIcon />

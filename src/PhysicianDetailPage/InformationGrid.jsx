@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/prop-types';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';

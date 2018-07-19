@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from '../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/prop-types';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -8,10 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
-
 import PhysicianInfoTable from './PhysicianInfoTable'
 
-const uuidv4 = require('../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 const styles = theme => ({
   paper: {

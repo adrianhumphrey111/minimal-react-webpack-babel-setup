@@ -4,7 +4,6 @@ import TitleBar from './PhysicianDetailPage/TitleBar'
 import ActionBar from './PhysicianDetailPage/ActionBar'
 import PhysicianInfoCard from './PhysicianDetailPage/PhysicianInfoCard'
 import InformationGrid from './PhysicianDetailPage/InformationGrid'
-
 import Typography from '@material-ui/core/Typography';
 
 export default class App extends Component {
@@ -20,7 +19,7 @@ export default class App extends Component {
     return (
       <div style={{margin: 0}}>
         <TitleBar/>
-        <ActionBar/>
+        <ActionBar user={this.state.user}/>
         <div style={{margin: 30}}>
             <Typography variant="display2" >
                 {`${user.firstName} ${user.lastName}`}
