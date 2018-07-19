@@ -21,8 +21,11 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "@material-ui/core": "^1.4.0",
+    "@material-ui/icons": "^1.1.0",
     "babel-preset-env": "^1.7.0",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "uuid": "^3.3.2"
   }
 }
